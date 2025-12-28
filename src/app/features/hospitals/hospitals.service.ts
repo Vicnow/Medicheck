@@ -1,5 +1,5 @@
 import { Injectable, computed, signal } from '@angular/core';
-import { Hospital, HOSPITALS_SEED } from './hospitals.seed';
+import { Hospital, HOSPITALS_SEED, DEFAULT_HOSPITAL_IMAGE } from './hospitals.seed';
 
 @Injectable({ providedIn: 'root' })
 export class HospitalsService {
@@ -8,16 +8,19 @@ export class HospitalsService {
         all = computed(() => this.hospitals());
 
         states = computed(() => {
-                const set = new Set(this.hospitals().map(h => h.state));
-                return [''].concat([...set].sort());
+                return [...new Set(this.hospitals().map(h => h.state))].sort();
         });
 
         cities = computed(() => {
-                const set = new Set(this.hospitals().map(h => h.city));
-                return [''].concat([...set].sort());
+                return [...new Set(this.hospitals().map(h => h.city))].sort();
         });
+
 
         getById(id: string): Hospital | null {
                 return this.hospitals().find(h => h.id === id) ?? null;
+        }
+
+        imageFor(h: Hospital | null): string {
+                return h?.image || DEFAULT_HOSPITAL_IMAGE;
         }
 }

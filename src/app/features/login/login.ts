@@ -9,37 +9,36 @@ import { AuthService } from '../../core/auth/auth.service';
         standalone: true,
         imports: [CommonModule, ReactiveFormsModule, RouterLink],
         template: `
-    <div class="min-h-screen flex items-center justify-center p-6">
-      <div class="w-full max-w-md rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
-        <h1 class="text-xl font-semibold">Login</h1>
+        <div class="mc-page">
+                <div class="mc-shell">
+                        <h1 class="mc-h1">Medicheck</h1>
+                        <p class="mc-subtitle">Reseñas reales de hospitales. Sin ruido.</p>
 
-        <form class="mt-4 space-y-3" [formGroup]="form" (ngSubmit)="onSubmit()">
-          <div>
-            <label class="block text-sm text-slate-300 mb-1">Email</label>
-            <input class="w-full text-slate-300 rounded-lg bg-slate-950 border border-slate-800 px-3 py-2"
-              formControlName="email" type="email" placeholder="you@domain.com" />
-          </div>
+                        <form class="mt-6 space-y-4" [formGroup]="form" (ngSubmit)="onSubmit()">
+                                <div>
+                                <label class="mc-label">Email</label>
+                                <input class="mc-input" formControlName="email" type="email" placeholder="you@domain.com" />
+                                </div>
 
-          <div>
-            <label class="block text-sm text-slate-300 mb-1">Password</label>
-            <input class="w-full text-slate-300 rounded-lg bg-slate-950 border border-slate-800 px-3 py-2"
-              formControlName="password" type="password" placeholder="123" />
-          </div>
+                                <div>
+                                <label class="mc-label">Password</label>
+                                <input class="mc-input" formControlName="password" type="password" placeholder="123" />
+                                </div>
 
-          <p class="text-sm text-red-400" *ngIf="error">{{ error }}</p>
+                                <p class="text-sm text-rose-600" *ngIf="error">{{ error }}</p>
 
-          <button class="w-full rounded-lg bg-indigo-600 hover:bg-indigo-500 px-3 py-2 disabled:opacity-50"
-            type="submit" [disabled]="form.invalid">
-            Entrar
-          </button>
+                                <button class="mc-btn-primary w-full" type="submit" [disabled]="form.invalid">
+                                Entrar
+                                </button>
 
-          <a class="block text-center text-sm text-slate-300 hover:text-slate-100" routerLink="/hospitals">
-            Ir a Hospitals
-          </a>
-        </form>
-      </div>
-    </div>
-  `,
+                                <p class="text-xs text-slate-500">
+                                MVP: token fake + guard. Luego se reemplaza por auth real.
+                                </p>
+                        </form>
+                </div>
+        </div>
+        `,
+
 })
 export class LoginComponent {
         private fb = inject(FormBuilder);
