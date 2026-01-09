@@ -100,11 +100,11 @@ function norm(s: string): string {
                         <div>
                         
                         <div class="text-left mt-2">
-                                <div class="text-sm font-semibold" style="color: var(--mc-ink);">
-                                ★ {{ ( 0) }}
+                                 <div class="text-sm font-semibold" style="color: var(--mc-ink);">
+                                ★ {{ (statsMap()[h.id]?.avg || 0) }}
                                 </div>
                                 <div class="text-xs" style="color: var(--mc-muted);">
-                                {{ ( 0) }} reseñas
+                                {{ (statsMap()[h.id]?.count || 0) }} reseñas
                                 </div>
                          </div>
                         </div>

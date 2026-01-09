@@ -8,7 +8,7 @@ export type Hospital = {
         tags?: string[];
 };
 
-export const DEFAULT_HOSPITAL_IMAGE = '/assets/hospitals/default.svg';
+export const DEFAULT_HOSPITAL_IMAGE = 'https://cdn-icons-png.flaticon.com/512/8789/8789934.png';
 
 const BASE: Omit<Hospital, 'id'>[] = [
         { name: 'Hospital General de México Dr. Eduardo Liceaga', state: 'CDMX', city: 'Cuauhtémoc', address: 'Dr. Balmis 148, Col. Doctores', tags: ['General', 'Público'] },
