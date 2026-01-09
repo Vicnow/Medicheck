@@ -30,10 +30,6 @@ import { AuthService } from '../../core/auth/auth.service';
                                 <button class="mc-btn-primary w-full" type="submit" [disabled]="form.invalid">
                                 Entrar
                                 </button>
-
-                                <p class="text-xs text-slate-500">
-                                MVP: token fake + guard. Luego se reemplaza por auth real.
-                                </p>
                         </form>
                 </div>
         </div>

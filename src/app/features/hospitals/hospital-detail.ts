@@ -23,17 +23,15 @@ import { ReviewsService } from '../reviews/reviews.service';
   />
   <div class="flex-1">
     <h1 class="mc-h1">{{ hospital()?.name || 'Hospital no encontrado' }}</h1>
-    ...
+    <!-- Agregar el id del hospital aquí -->
+    <p class="mc-subtitle" *ngIf="hospital()">
+      ID: {{ hospital()!.id }}
+    </p>
   </div>
 </div>
 
           <div class="flex items-start justify-between gap-3">
             <div>
-                <!-- Agregar el id del hospital aquí -->
-                <p class="mc-subtitle" *ngIf="hospital()">
-                  ID: {{ hospital()!.id }}
-                </p>
-              <h1 class="mc-h1">{{ hospital()?.name || 'Hospital no encontrado' }}</h1>
               <p class="mc-subtitle" *ngIf="hospital()">
                 {{ hospital()!.city }}, {{ hospital()!.state }}
               </p>
@@ -132,13 +130,13 @@ import { ReviewsService } from '../reviews/reviews.service';
                   <div class="flex items-center gap-2">
                     <span class="mc-badge">★ {{ r.rating }}/5</span>
                     <span class="text-xs" style="color: var(--mc-muted);">
-                        {{ r.userId === userId() ? 'Tú' : (r.userName || 'Anónimo') }}
+                        Dr. {{ r.userId === userId() ? 'Tú' : (r.userName || 'Anónimo') }}
                         </span>
 
                   </div>
-                  <span class="text-xs" style="color: var(--mc-muted);">
+                  <!-- <span class="text-xs" style="color: var(--mc-muted);">
                     {{ r.updatedAt | date:'short' }}
-                  </span>
+                  </span> -->
                 </div>
                 <p class="mt-3 text-sm">{{ r.text }}</p>
               </div>

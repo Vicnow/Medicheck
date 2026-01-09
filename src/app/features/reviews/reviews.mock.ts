@@ -1,7 +1,7 @@
 import { db } from '../../core/db/app.db';
 import { HOSPITALS_SEED } from '../hospitals/hospitals.seed';
 
-const SEED_FLAG = 'mc_mock_seed_v3';
+const SEED_FLAG = 'mc_mock_seed_v5';
 const USER_ID_KEY = 'mc_user_id';
 
 type MockUser = { id: string; name: string };
@@ -152,11 +152,11 @@ export async function seedMockDataIfNeeded(): Promise<void> {
         });
 
         // MUCHAS reseñas por hospital
-        const REVIEWS_MIN = 40;
-        const REVIEWS_MAX = 120;
+        const REVIEWS_MIN = 2;
+        const REVIEWS_MAX = 6;
 
         // últimos ~360 días
-        const DAYS_BACK = 360;
+        const DAYS_BACK = 10;
 
         const rows: any[] = [];
 
@@ -189,7 +189,7 @@ export async function seedMockDataIfNeeded(): Promise<void> {
                                 userName: u.name, // extra field (no index)
                                 rating: clamp(rating, 1, 5),
                                 text,
-                                createdAt: now,
+                                createdAt: now - 2 * 60 * 1000,
                                 updatedAt: now,
                         });
 
